@@ -1,0 +1,93 @@
+Tech Stack:
+    react 
+    in memory database (sqlite)
+    with good animations
+    with good UI
+    with good navigation
+    with good performance
+    with good security
+
+Features:
+    Authentication: [DONE]
+        1) Create login and register page via email and password. [DONE]
+        2) Create forgot password page. [DONE-DEMO]
+        3) Create reset password page. [DONE-DEMO]
+        4) Create budget alert for future week and month [DONE]
+        5) Create a reminder or alerts for selected months regarding upcoming payments and tax [DONE]
+        6) alert if the budget is exceeded. and alert if expenses have exceeded the income. [DONE]
+        7) Create a dashboard to show the total income and expenses. [DONE]
+
+    
+    Expenses: [DONE]
+        1) Create add expense page. [DONE]
+        2) Create view expense page. [DONE]
+        3) Create edit expense page. [DONE]
+        4) Create delete expense page. [DONE]
+        5) Create expense segregation of fees, bills, EMIs, investments,insurance, shopping, hospital and other expenses. [DONE]
+        6) Create colour code and categories for expense [DONE]
+        7) lock the app with a password. [DONE]
+
+    
+    Charts:
+        1) Create chart page.
+        2) Create chart data.
+        3) Create chart view.
+    
+    Database:
+        1) Create sqlite database.
+        2) Create database connection.
+        3) Create database queries.
+    
+    UI:
+        1) Create UI for login and register page.
+        2) Create UI for add expense page.
+        3) Create UI for view expense page.
+        4) Create UI for edit expense page.
+        5) Create UI for delete expense page.
+        6) Create UI for chart page.
+        7) Create UI for chart data.
+        8) Create UI for chart view.
+    
+    Navigation:
+        1) Create navigation for login and register page.
+        2) Create navigation for add expense page.
+        3) Create navigation for view expense page.
+        4) Create navigation for edit expense page.
+        5) Create navigation for delete expense page.
+        6) Create navigation for chart page.
+        7) Create navigation for chart data.
+        8) Create navigation for chart view.
+    
+    Performance:
+        1) Create performance for login and register page.
+        2) Create performance for add expense page.
+        3) Create performance for view expense page.
+        4) Create performance for edit expense page.
+        5) Create performance for delete expense page.
+        6) Create performance for chart page.
+        7) Create performance for chart data.
+        8) Create performance for chart view.
+    
+    Security:
+        1) Create security for login and register page.
+        2) Create security for add expense page.
+        3) Create security for view expense page.
+        4) Create security for edit expense page.
+        5) Create security for delete expense page.
+        6) Create security for chart page.
+        7) Create security for chart data.
+        8) Create security for chart view.     
+    
+    Testing:
+        1) Create testing for login and register page.
+        2) Create testing for add expense page.
+        3) Create testing for view expense page.
+        4) Create testing for edit expense page.
+        5) Create testing for delete expense page.
+        6) Create testing for chart page.
+        7) Create testing for chart data.
+        8) Create testing for chart view.      
+    
+
+
+    

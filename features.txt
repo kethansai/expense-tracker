@@ -1,0 +1,61 @@
+# Features List
+
+## Core Features (Original & Enhanced)
+1. **Authentication** [DONE]
+    - Email & Password Login/Register [DONE]
+    - Forgot & Reset Password flows [DONE-DEMO]
+    - Secure session management [DONE]
+
+2. **Dashboard** [DONE]
+    - Total Income vs Total Expense overview [DONE]
+    - Visual "Budget vs Actual" progress bars [DONE]
+    - Recent transactions list [DONE]
+    - [NEW] Glassmorphism design for summary cards [DONE]
+    - [NEW] "Welcome" message with time-based greeting [DONE]
+
+3. **Expense Management** [DONE]
+    - Add, View, Edit, Delete expenses
+    - Categorization (Fees, Bills, EMIs, Investments, Insurance, Shopping, Health, etc.)
+    - Color coding for categories
+    - [NEW] Recurring Transactions (subscriptions, rent)
+    - [NEW] Receipt attachment support (future scope, UI placeholder for now)
+
+4. **Income Management [NEW]**
+    - Add, View, Edit, Delete income sources
+    - Separate tracking for Salary, Freelance, Dividends, etc.
+
+5. **Budgeting & Alerts**
+    - Monthly/Weekly budget setting
+    - Alerts for upcoming payments/taxes
+    - Warning alerts when budget is exceeded (Visual + Optional Toast notification)
+    - [NEW] "Safe to Spend" calculator based on remaining budget
+
+6. **Analytics & Charts**
+    - Pie chart for expense distribution by category
+    - Bar chart for Income vs Expense per month
+    - [NEW] Interactive charts (drill-down on click)
+    - [NEW] Cash flow trend lines
+
+7. **Search & Filter**
+    - Filter expenses by Date, Category, or Amount
+    - Sort by High-to-Low, Low-to-High, Newest
+
+## Advanced Features & UX [NEW]
+8. **Calendar View**
+    - Monthly view with dots indicating transaction days
+    - Click date to filter transactions
+
+9. **Data Persistence & Settings**
+    - In-browser persistence (IndexedDB/LocalStorage) via sql.js or similar
+    - Export Data to CSV/JSON
+    - Dark/Light Mode toggle
+    - [NEW] App Lock (Passcode/PIN protection)
+
+10. **PWA Support**
+    - Installable on mobile/desktop
+    - Offline access capability
+
+## Technical Requirements
+- **Stack**: React, Vite, Sqlite (wasm/sql.js), CSS Modules/Vanilla CSS
+- **Performance**: Skeleton loaders, code splitting
+- **Security**: Sanitized inputs, PIN lock for app access
