@@ -5,7 +5,7 @@ import { useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-    const { isDarkMode, toggleTheme, loading, user } = useAppContext();
+    const { isDarkMode, toggleTheme, loading } = useAppContext();
     const location = useLocation();
 
     const getPageTitle = () => {

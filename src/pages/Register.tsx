@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useAppContext } from '../context/AppContext';
-import { Mail, Lock, UserPlus, ArrowRight, User, Shield } from 'lucide-react';
+import { Mail, Lock, UserPlus, ArrowRight, Shield } from 'lucide-react';
 import { useNavigate, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { saveDB } from '../db/database';

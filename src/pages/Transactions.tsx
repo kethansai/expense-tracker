@@ -133,7 +133,7 @@ const TransactionsPage: React.FC = () => {
                         </div>
                     ) : (
                         <AnimatePresence mode="popLayout">
-                            {filteredTransactions.map((t, idx) => (
+                            {filteredTransactions.map((t) => (
                                 <motion.div
                                     layout
                                     initial={{ opacity: 0, scale: 0.9 }}

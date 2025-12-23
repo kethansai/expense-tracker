@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { initDB, getDB, saveDB } from '../db/database';
-import { Database } from 'sql.js';
+import type { Database } from 'sql.js';
 
 interface AppContextType {
     db: Database | null;

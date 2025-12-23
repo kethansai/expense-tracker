@@ -10,14 +10,13 @@ import {
     Target,
     Plus,
     X,
-    Bell,
     Check,
     Edit2,
     Languages,
     ArrowRight
 } from 'lucide-react';
 import { saveDB } from '../db/database';
-import type { Budget, Reminder } from '../hooks/useFinanceData';
+import type { Budget } from '../hooks/useFinanceData';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const CATEGORIES = ['Fees', 'Bills', 'EMIs', 'Investments', 'Insurance', 'Shopping', 'Health', 'Food', 'Travel', 'Other'];
@@ -32,15 +31,11 @@ const CURRENCIES = [
 
 const SettingsPage: React.FC = () => {
     const { user, setUser, db } = useAppContext();
-    const { budgets, reminders, refresh } = useFinanceData();
+    const { budgets, refresh } = useFinanceData();
 
     const [isAddingBudget, setIsAddingBudget] = useState(false);
     const [editingBudget, setEditingBudget] = useState<Budget | null>(null);
     const [newBudget, setNewBudget] = useState({ category: '', amount: '', period: 'monthly' });
-
-    const [isAddingReminder, setIsAddingReminder] = useState(false);
-    const [editingReminder, setEditingReminder] = useState<Reminder | null>(null);
-    const [newReminder, setNewReminder] = useState({ title: '', amount: '', due_date: '', category: '' });
 
     const [msg, setMsg] = useState({ type: '', text: '' });
 
@@ -110,63 +105,11 @@ const SettingsPage: React.FC = () => {
         }
     };
 
-    const handleSaveReminder = (e: React.FormEvent) => {
-        e.preventDefault();
-        if (!newReminder.title || !newReminder.amount || !newReminder.due_date) return;
-
-        try {
-            if (editingReminder) {
-                db?.run(`
-                    UPDATE reminders 
-                    SET title = '${newReminder.title.replace(/\'/g, "''")}', amount = ${parseFloat(newReminder.amount)}, due_date = '${newReminder.due_date}', category = '${newReminder.category}'
-                    WHERE id = ${editingReminder.id}
-                `);
-            } else {
-                db?.run(`
-                    INSERT INTO reminders (user_id, title, amount, due_date, category, is_paid)
-                    VALUES (${user.id}, '${newReminder.title.replace(/\'/g, "''")}', ${parseFloat(newReminder.amount)}, '${newReminder.due_date}', '${newReminder.category}', 0)
-                `);
-            }
-            saveDB();
-            refresh();
-            setNewReminder({ title: '', amount: '', due_date: '', category: '' });
-            setIsAddingReminder(false);
-            setEditingReminder(null);
-            showMessage('success', `Temporal alert ${editingReminder ? 'reconfigured' : 'engaged'}`);
-        } catch (err) {
-            showMessage('error', 'Alert registry failed');
-        }
-    };
-
-    const handleDeleteReminder = (id: number) => {
-        if (window.confirm('Deactivate this temporal alert?')) {
-            db?.run(`DELETE FROM reminders WHERE id = ${id}`);
-            saveDB();
-            refresh();
-            showMessage('success', 'Alert terminated');
-        }
-    };
-
     const handleResetPin = () => {
         if (window.confirm('SECURITY OVERRIDE: Clear existing vault PIN?')) {
             db?.run(`UPDATE users SET pin_code = NULL WHERE id = ${user.id}`);
             saveDB();
             showMessage('success', 'Security barrier cleared');
-        }
-    };
-
-    const handleMarkAsPaid = (reminder: Reminder) => {
-        try {
-            db?.run(`UPDATE reminders SET is_paid = 1 WHERE id = ${reminder.id}`);
-            db?.run(`
-                INSERT INTO transactions (user_id, amount, type, category, date, description)
-                VALUES (${user.id}, ${reminder.amount}, 'expense', '${reminder.category}', '${new Date().toISOString().split('T')[0]}', 'Settled: ${reminder.title.replace(/\'/g, "''")}')
-            `);
-            saveDB();
-            refresh();
-            showMessage('success', 'Invoice settled and ledger updated');
-        } catch (err) {
-            showMessage('error', 'Settlement failed');
         }
     };
 
